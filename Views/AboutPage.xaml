@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hai.Views.AboutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Hai"
+    Title="About">
+
+    <ScrollView Orientation="Vertical">
+        <StackLayout Orientation="Vertical">
+            <Frame
+                BackgroundColor="#F7A6F5"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                VerticalOptions="Start">
+                <Label
+                    Margin="0,0,0,10"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Welcome to our .NET MAUI XAML College Project About Page!" />
+            </Frame>
+            <StackLayout
+                Margin="5,2"
+                BackgroundColor="#F7A6F5"
+                Orientation="Vertical">
+                <Label
+                    Margin="0,0,0,10"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    Text="Welcome to our .NET MAUI XAML College Project About Page!" />
+                <Label
+                    Margin="0,20,0,5"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="College Details:" />
+                <Image
+                    Grid.Row="0"
+                    Margin="0,10,0,10"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="bmsce.png"
+                    VerticalOptions="Center"
+                    WidthRequest="100" />
+
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="College Name: BMS College of Engineering" />
+
+                <Label
+                    Margin="0,0,0,10"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="Dept: Electronics and Communication Engineering" />
+            </StackLayout>
+            <StackLayout
+                Margin="5,2"
+                BackgroundColor="#F26E28"
+                Orientation="Vertical">
+                <Label
+                    Margin="0,20,0,5"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Team Members:" />
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label
+                        Margin="0,0,0,5"
+                        FontSize="16"
+                        Text="Girish Kumar" />
+                    <Label Margin="5,0,0,10" FontSize="14">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " />
+                                <Span
+                                    Text="girishkumar.ec20@bmsce.ac.in"
+                                    TextColor="Blue"
+                                    TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="mailto:girishkumar.ec20@bmsce.ac.in" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label
+                        Margin="0,0,0,5"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="Kiran H" />
+                    <Label Margin="5,0,0,10" FontSize="14">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " />
+                                <Span
+                                    Text="kiran.ec20@bmsce.ac.in"
+                                    TextColor="Blue"
+                                    TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="mailto:kiran.ec20@bmsce.ac.in" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label
+                        Margin="0,0,0,5"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="Hanumanta D H" />
+                    <Label Margin="5,0,0,10" FontSize="14">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Email: " />
+                                <Span
+                                    Text="hanumanta.ec20@bmsce.ac.in"
+                                    TextColor="Blue"
+                                    TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="mailto:hanumanta.ec20@bmsce.ac.in" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label
+                        Margin="0,0,0,10"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="Dilshad" />
+
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Margin="5,2" BackgroundColor="#F26E28">
+                <Label
+                    Margin="0,20,0,5"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Project Guide:" />
+
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="Mrs. Lalitha S" />
+
+                <Label
+                    Margin="0,0,0,5"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="Assistant Professor" />
+
+                <Label
+                    Margin="0,0,0,10"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="M.Tech, MBA(HR)" />
+
+                <Label
+                    Margin="5,0,0,10"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="Email: lalithas.ece@bmsce.ac.in">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Email: " />
+                            <Span
+                                Text="lalithas.ece@bmsce.ac.in"
+                                TextColor="Blue"
+                                TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="mailto:lalithas.ece@bmsce.ac.in" />
+                                </Span.GestureRecognizers>
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="4"
+                Margin="5,2"
+                BackgroundColor="#F26E28"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label
+                        Margin="0,20,0,10"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        IsVisible="false"
+                        Text="We are a team of final year B.E. students from BMS College of Engineering, specializing in .NET MAUI and XAML. Our project aims to leverage the power of these technologies to develop innovative solutions. With the guidance and expertise of Mrs. Lalitha S, we are excited to bring our ideas to life." />
+
+                    <Label
+                        Margin="0,0,0,10"
+                        Padding="10"
+                        FontSize="16"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Stay tuned for updates and progress on our .NET MAUI XAML college project. If you have any questions or would like to get in touch with us, please feel free to reach out to us via email." />
+
+                    <Label
+                        Margin="0,20,0,0"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Thank you for your support!" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

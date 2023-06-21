@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hai.Views.RemaindersPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Hai"
+    Title="Remainders">
+    <VerticalStackLayout>
+        <Label
+            HorizontalOptions="Center"
+            Text="Welcome to .NET MAUI! Remainders"
+            VerticalOptions="Center" />
+        <Editor
+            x:Name="textInput1"
+            Margin="1,1,2,0"
+            AutoSize="TextChanges"
+            FontAutoScalingEnabled="True"
+            IsSpellCheckEnabled="True"
+            IsTextPredictionEnabled="True"
+            MaximumHeightRequest="80"
+            Placeholder="enter message"
+            VerticalOptions="EndAndExpand"
+            WidthRequest="500" />
+    </VerticalStackLayout>
+</ContentPage>

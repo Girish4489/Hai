@@ -1,0 +1,129 @@
+﻿<ContentPage
+    x:Class="Hai.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Hai">
+    <Grid>
+        <!--  Chat window is above the editor text box and buttons  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout
+            Grid.Row="0"
+            HorizontalOptions="StartAndExpand"
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand">
+            <ScrollView
+                x:Name="chatScrollView"
+                Grid.Row="0"
+                Orientation="Vertical"
+                VerticalOptions="EndAndExpand">
+                <Grid>
+                    <StackLayout
+                        x:Name="chatLayout"
+                        Padding="10,5"
+                        Spacing="5" />
+                </Grid>
+            </ScrollView>
+            <Image
+                x:Name="downArrowImage"
+                Margin="0,0,10,5"
+                BackgroundColor="#14bdad"
+                HeightRequest="25"
+                HorizontalOptions="End"
+                IsAnimationPlaying="True"
+                IsVisible="True"
+                Source="down_arrow.png"
+                VerticalOptions="End"
+                WidthRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapOnDownArrow" />
+                </Image.GestureRecognizers>
+            </Image>
+
+        </StackLayout>
+
+
+
+        <!--  Editor text box and buttons are below the chat  -->
+        <StackLayout
+            x:Name="bottomStackUserText"
+            Grid.Row="1"
+            Margin="2"
+            Padding="2"
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            VerticalOptions="End">
+            <StackLayout
+                x:Name="StackEditor"
+                Grid.Column="0"
+                Margin="2"
+                HorizontalOptions="StartAndExpand"
+                Orientation="Vertical">
+                <Editor
+                    x:Name="textInput"
+                    Margin="2"
+                    AutoSize="TextChanges"
+                    HorizontalOptions="StartAndExpand"
+                    HorizontalTextAlignment="Start"
+                    IsSpellCheckEnabled="True"
+                    IsTextPredictionEnabled="True"
+                    Keyboard="Chat"
+                    MaximumHeightRequest="90"
+                    MinimumHeightRequest="45"
+                    MinimumWidthRequest="600"
+                    Placeholder="Type Your Message..... "
+                    Text="{Binding RecognitionText}"
+                    TextChanged="OnTextInputChanged" />
+            </StackLayout>
+            <StackLayout
+                x:Name="stackMic"
+                Grid.Column="1"
+                Margin="0,0,2,0"
+                HorizontalOptions="End"
+                Orientation="Vertical"
+                VerticalOptions="Center">
+                <ImageButton
+                    x:Name="micButton"
+                    Padding="2"
+                    BackgroundColor="#14bdad"
+                    Clicked="OnMicButtonClicked"
+                    CornerRadius="8"
+                    HeightRequest="40"
+                    WidthRequest="40">
+                    <ImageButton.Source>
+                        <FileImageSource File="mic.png" />
+                    </ImageButton.Source>
+                </ImageButton>
+                <ImageButton
+                    x:Name="micStopButton"
+                    Padding="2"
+                    BackgroundColor="#14bdad"
+                    Clicked="OnMicStopButtonClicked"
+                    CornerRadius="8"
+                    HeightRequest="40"
+                    IsVisible="False"
+                    WidthRequest="40">
+                    <ImageButton.Source>
+                        <FileImageSource File="stop.png" />
+                    </ImageButton.Source>
+                </ImageButton>
+                <ImageButton
+                    x:Name="sendButton"
+                    Padding="2"
+                    BackgroundColor="#14bdad"
+                    Clicked="OnSendButtonClicked"
+                    CornerRadius="8"
+                    HeightRequest="40"
+                    IsVisible="False"
+                    WidthRequest="40">
+                    <ImageButton.Source>
+                        <FileImageSource File="send.png" />
+                    </ImageButton.Source>
+                </ImageButton>
+            </StackLayout>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>
