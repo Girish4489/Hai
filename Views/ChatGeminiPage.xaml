@@ -1,0 +1,123 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hai.Views.ChatGeminiPage"
+             Title="Gemini">
+	<Grid>
+		<!-- Chat window is above the editor text box and buttons -->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<StackLayout
+                Grid.Row="0"
+                HorizontalOptions="StartAndExpand"
+                Orientation="Vertical"
+                VerticalOptions="FillAndExpand">
+			<ScrollView
+                    x:Name="chatScrollViewGemini"
+                    Grid.Row="0"
+                    Orientation="Vertical"
+                    VerticalOptions="EndAndExpand">
+				<Grid>
+					<StackLayout
+                            x:Name="chatLayoutGemini"
+                            Padding="10,5"
+                            Spacing="5" />
+				</Grid>
+			</ScrollView>
+			<Image
+                    x:Name="downArrowImageGemini"
+                    Margin="0,0,10,5"
+                    BackgroundColor="#14bdad"
+                    HeightRequest="25"
+                    HorizontalOptions="End"
+                    IsAnimationPlaying="True"
+                    IsVisible="True"
+                    Source="down_arrow.png"
+                    VerticalOptions="End"
+                    WidthRequest="25">
+				<Image.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnTapOnDownArrowGemini" />
+				</Image.GestureRecognizers>
+			</Image>
+		</StackLayout>
+
+		<!-- Editor text box and buttons are below the chat -->
+		<StackLayout
+                x:Name="bottomStackUserTextGemini"
+                Grid.Row="1"
+                Margin="2"
+                Padding="2"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                VerticalOptions="End">
+			<StackLayout
+                    x:Name="StackEditorGemini"
+                    Grid.Column="0"
+                    Margin="2"
+                    HorizontalOptions="StartAndExpand"
+                    Orientation="Vertical">
+				<Editor
+                        x:Name="textInputGemini"
+                        Margin="2"
+                        AutoSize="TextChanges"
+                        HorizontalOptions="StartAndExpand"
+                        HorizontalTextAlignment="Start"
+                        IsSpellCheckEnabled="True"
+                        IsTextPredictionEnabled="True"
+                        Keyboard="Chat"
+                        MaximumHeightRequest="90"
+                        MinimumHeightRequest="45"
+                        MinimumWidthRequest="600"
+                        Placeholder="Type Your Message..... "
+                        TextChanged="OnTextInputChangedGemini" />
+			</StackLayout>
+			<StackLayout
+                    x:Name="stackMicGemini"
+                    Grid.Column="1"
+                    Margin="0,0,2,0"
+                    HorizontalOptions="End"
+                    Orientation="Vertical"
+                    VerticalOptions="Center">
+				<ImageButton
+                        x:Name="micButtonGemini"
+                        Padding="8"
+                        BackgroundColor="#14bdad"
+                        Clicked="OnMicButtonClickedGemini"
+                        CornerRadius="10"
+                        HeightRequest="40"
+                        WidthRequest="40">
+					<ImageButton.Source>
+						<FileImageSource File="mic.png" />
+					</ImageButton.Source>
+				</ImageButton>
+				<ImageButton
+                        x:Name="micStopButtonGemini"
+                        Padding="8"
+                        BackgroundColor="#14bdad"
+                        Clicked="OnMicStopButtonClickedGemini"
+                        CornerRadius="10"
+                        HeightRequest="40"
+                        IsVisible="False"
+                        WidthRequest="40">
+					<ImageButton.Source>
+						<FileImageSource File="stop.png" />
+					</ImageButton.Source>
+				</ImageButton>
+				<ImageButton
+                        x:Name="sendButtonGemini"
+                        Padding="8"
+                        BackgroundColor="#14bdad"
+                        Clicked="OnSendButtonClickedGemini"
+                        CornerRadius="10"
+                        HeightRequest="40"
+                        IsVisible="False"
+                        WidthRequest="40">
+					<ImageButton.Source>
+						<FileImageSource File="send.png" />
+					</ImageButton.Source>
+				</ImageButton>
+			</StackLayout>
+		</StackLayout>
+	</Grid>
+</ContentPage>

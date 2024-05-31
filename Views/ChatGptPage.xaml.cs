@@ -1,18 +1,14 @@
-﻿using Newtonsoft.Json;
+using Hai.Platforms;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Globalization;
-using Hai.Platforms;
-using System.Collections.Generic;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
 using System.Text.Json;
 
+namespace Hai.Views;
 
-namespace Hai;
-
-public partial class MainPage : ContentPage
+public partial class ChatGptPage : ContentPage
 {
 	private readonly HttpClient _httpClient;
 	private readonly string _apiKey;
@@ -21,19 +17,18 @@ public partial class MainPage : ContentPage
 	private readonly ISpeechToText speechToText;
 
 	private readonly CancellationTokenSource tokenSource = new();
-
-
-	public MainPage()
+	public ChatGptPage()
 	{
 		InitializeComponent();
 
 		// Initialize the HttpClient and set the API key
 		_httpClient = new HttpClient();
-		//_apiKey = "";
+		_apiKey = "";
 
 		// Initialize the speech-to-text implementation
 		speechToText = new SpeechToTextImplementation();
 	}
+
 
 	private void OnTapOnDownArrow(object sender, EventArgs e)
 	{
@@ -104,9 +99,9 @@ public partial class MainPage : ContentPage
 											DeviceInfo.Platform == DevicePlatform.WinUI)
 					{
 						Device.BeginInvokeOnMainThread(() =>
-										{
-											textInput.Text = partialText;
-										});
+						{
+							textInput.Text = partialText;
+						});
 					}
 
 					Console.WriteLine("RecognitionText is this: " + RecognitionText);
@@ -284,7 +279,7 @@ public partial class MainPage : ContentPage
 			HeightRequest = 30,
 			WidthRequest = 30,
 			Margin = new Thickness(5, 0),
-			
+
 			BackgroundColor = Color.FromRgb(20, 189, 173),
 			Aspect = Aspect.AspectFill
 		};
@@ -373,5 +368,4 @@ public partial class MainPage : ContentPage
 
 		Debug.WriteLine("DisplayMessage method finished");
 	}
-
 }

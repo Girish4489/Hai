@@ -1,32 +1,32 @@
-﻿<ContentPage
-    x:Class="Hai.MainPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Hai">
-    <Grid>
-        <!--  Chat window is above the editor text box and buttons  -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <StackLayout
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hai.Views.ChatGptPage"
+             Title="GPT">
+		<Grid>
+			<!--  Chat window is above the editor text box and buttons  -->
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackLayout
             Grid.Row="0"
             HorizontalOptions="StartAndExpand"
             Orientation="Vertical"
             VerticalOptions="FillAndExpand">
-            <ScrollView
+				<ScrollView
                 x:Name="chatScrollView"
                 Grid.Row="0"
                 Orientation="Vertical"
                 VerticalOptions="EndAndExpand">
-                <Grid>
-                    <StackLayout
+					<Grid>
+						<StackLayout
                         x:Name="chatLayout"
                         Padding="10,5"
                         Spacing="5" />
-                </Grid>
-            </ScrollView>
-            <Image
+					</Grid>
+				</ScrollView>
+				<Image
                 x:Name="downArrowImage"
                 Margin="0,0,10,5"
                 BackgroundColor="#14bdad"
@@ -37,17 +37,17 @@
                 Source="down_arrow.png"
                 VerticalOptions="End"
                 WidthRequest="25">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnTapOnDownArrow" />
-                </Image.GestureRecognizers>
-            </Image>
+					<Image.GestureRecognizers>
+						<TapGestureRecognizer Tapped="OnTapOnDownArrow" />
+					</Image.GestureRecognizers>
+				</Image>
 
-        </StackLayout>
+			</StackLayout>
 
 
 
-        <!--  Editor text box and buttons are below the chat  -->
-        <StackLayout
+			<!--  Editor text box and buttons are below the chat  -->
+			<StackLayout
             x:Name="bottomStackUserText"
             Grid.Row="1"
             Margin="2"
@@ -55,13 +55,13 @@
             HorizontalOptions="Center"
             Orientation="Horizontal"
             VerticalOptions="End">
-            <StackLayout
+				<StackLayout
                 x:Name="StackEditor"
                 Grid.Column="0"
                 Margin="2"
                 HorizontalOptions="StartAndExpand"
                 Orientation="Vertical">
-                <Editor
+					<Editor
                     x:Name="textInput"
                     Margin="2"
                     AutoSize="TextChanges"
@@ -76,15 +76,15 @@
                     Placeholder="Type Your Message..... "
                     Text="{Binding RecognitionText}"
                     TextChanged="OnTextInputChanged" />
-            </StackLayout>
-            <StackLayout
+				</StackLayout>
+				<StackLayout
                 x:Name="stackMic"
                 Grid.Column="1"
                 Margin="0,0,2,0"
                 HorizontalOptions="End"
                 Orientation="Vertical"
                 VerticalOptions="Center">
-                <ImageButton
+					<ImageButton
                     x:Name="micButton"
                     Padding="2"
                     BackgroundColor="#14bdad"
@@ -92,38 +92,39 @@
                     CornerRadius="8"
                     HeightRequest="40"
                     WidthRequest="40">
-                    <ImageButton.Source>
-                        <FileImageSource File="mic.png" />
-                    </ImageButton.Source>
-                </ImageButton>
-                <ImageButton
+						<ImageButton.Source>
+							<FileImageSource File="mic.png" />
+						</ImageButton.Source>
+					</ImageButton>
+					<ImageButton
                     x:Name="micStopButton"
-                    Padding="2"
+                    Padding="8"
                     BackgroundColor="#14bdad"
                     Clicked="OnMicStopButtonClicked"
-                    CornerRadius="8"
+                    CornerRadius="10"
                     HeightRequest="40"
                     IsVisible="False"
                     WidthRequest="40">
-                    <ImageButton.Source>
-                        <FileImageSource File="stop.png" />
-                    </ImageButton.Source>
-                </ImageButton>
-                <ImageButton
+						<ImageButton.Source>
+							<FileImageSource File="stop.png" />
+						</ImageButton.Source>
+					</ImageButton>
+					<ImageButton
                     x:Name="sendButton"
-                    Padding="2"
+                    Padding="8"
                     BackgroundColor="#14bdad"
                     Clicked="OnSendButtonClicked"
-                    CornerRadius="8"
+                    CornerRadius="10"
                     HeightRequest="40"
                     IsVisible="False"
                     WidthRequest="40">
-                    <ImageButton.Source>
-                        <FileImageSource File="send.png" />
-                    </ImageButton.Source>
-                </ImageButton>
-            </StackLayout>
-        </StackLayout>
+						<ImageButton.Source>
+							<FileImageSource File="send.png" />
+						</ImageButton.Source>
+					</ImageButton>
+				</StackLayout>
+			</StackLayout>
 
-    </Grid>
+		</Grid>
+
 </ContentPage>

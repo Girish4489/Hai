@@ -1,6 +1,6 @@
 ﻿using Hai.Data;
-using Hai.Views;
 using Hai.Platforms;
+using Hai.Views;
 using Microsoft.Extensions.Logging;
 
 namespace Hai;
@@ -22,14 +22,15 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 
 #endif
-		builder.Services.AddTransient<MainPage>();
-        builder.Services.AddSingleton<TodoPage>();
-        builder.Services.AddTransient<TodoPage>();
+		builder.Services.AddTransient<ChatGeminiPage>();
+		builder.Services.AddTransient<ChatGptPage>();
+		builder.Services.AddSingleton<TodoPage>();
+		builder.Services.AddTransient<TodoPage>();
 
-        builder.Services.AddSingleton<TodoItemDatabase>();
+		builder.Services.AddSingleton<TodoItemDatabase>();
 
 #if ANDROID || IOS || WINDOWS || MACCATALYST
-        builder.Services.AddSingleton<ISpeechToText, SpeechToTextImplementation>();
+		builder.Services.AddSingleton<ISpeechToText, SpeechToTextImplementation>();
 #endif
 		return builder.Build();
 	}

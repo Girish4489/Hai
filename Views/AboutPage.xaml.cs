@@ -1,27 +1,25 @@
-using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Controls;
 using System.Windows.Input;
 
 namespace Hai.Views
 {
-    public partial class AboutPage : ContentPage
-    {
-        public ICommand TapCommand { get; }
+	public partial class AboutPage : ContentPage
+	{
+		public ICommand TapCommand { get; }
 
-        public AboutPage()
-        {
-            InitializeComponent();
+		public AboutPage()
+		{
+			InitializeComponent();
 
-            TapCommand = new Command<string>(ExecuteTapCommand);
-            BindingContext = this;
-        }
+			TapCommand = new Command<string>(ExecuteTapCommand);
+			BindingContext = this;
+		}
 
-        private async void ExecuteTapCommand(string url)
-        {
-            if (!string.IsNullOrEmpty(url))
-            {
-                await Launcher.OpenAsync(new Uri(url));
-            }
-        }
-    }
+		private async void ExecuteTapCommand(string url)
+		{
+			if (!string.IsNullOrEmpty(url))
+			{
+				await Launcher.OpenAsync(new Uri(url));
+			}
+		}
+	}
 }

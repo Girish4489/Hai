@@ -8,70 +8,75 @@
     FlyoutHeaderBehavior="CollapseOnScroll"
     Shell.FlyoutBehavior="Flyout">
 
-    <!--  create the flyout items  -->
-    <ShellContent
-        Title="Hai Ai"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Icon="chatbot.png"
-        Route="MainPage" />
-    <ShellContent
+	<!--  create the flyout items  -->
+	<FlyoutItem Title="Chate Page">
+			<Tab Title="Gemini"
+            Icon="chatbot.png">
+				<ShellContent ContentTemplate="{DataTemplate views:ChatGeminiPage}" />
+			</Tab>
+			<Tab Title="GPT"
+            Icon="chatbot.png">
+				<ShellContent ContentTemplate="{DataTemplate views:ChatGptPage}" />
+			</Tab>
+	</FlyoutItem>
+	<ShellContent
         Title="Todo List"
         ContentTemplate="{DataTemplate views:TodoPage}"
         Icon="todo.png" />
-    <ShellContent
+	<ShellContent
         Title="Remainders"
         ContentTemplate="{DataTemplate views:RemaindersPage}"
         Icon="notification_bell.png" />
-    <ShellContent
+	<ShellContent
         Title="Settings"
         ContentTemplate="{DataTemplate views:SettingsPage}"
         Icon="ai_settings.png" />
-    <ShellContent
+	<ShellContent
         Title="Help"
         ContentTemplate="{DataTemplate views:HelpPage}"
         Icon="friends.png" />
-    <ShellContent
+	<ShellContent
         Title="About"
         ContentTemplate="{DataTemplate views:AboutPage}"
         Icon="about.png" />
-    <MenuItem
+	<MenuItem
         Clicked="OnExitMenuItemClicked"
         IconImageSource="power.png"
         Text="Exit" />
 
-    <!--  creating flyout Header  -->
-    <Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <Grid BackgroundColor="Black" HeightRequest="200">
-                <Image
+	<!--  creating flyout Header  -->
+	<Shell.FlyoutHeaderTemplate>
+		<DataTemplate>
+			<Grid BackgroundColor="Black" HeightRequest="200">
+				<Image
                     Aspect="AspectFill"
                     Opacity="1"
                     Source="mic_banner.png" />
-                <Label
+				<Label
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"
                     Text="Hai"
                     TextColor="White"
                     VerticalTextAlignment="Center" />
-            </Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
+			</Grid>
+		</DataTemplate>
+	</Shell.FlyoutHeaderTemplate>
 
-    <!--  creating flyout Footer  -->
-    <Shell.FlyoutFooterTemplate>
-        <DataTemplate>
-            <StackLayout>
-                <Label
+	<!--  creating flyout Footer  -->
+	<Shell.FlyoutFooterTemplate>
+		<DataTemplate>
+			<StackLayout>
+				<Label
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
                     Text="Hai"
                     TextColor="Black" />
-                <Label
+				<Label
                     HorizontalOptions="Center"
                     Text="Version: 0.0.1"
                     TextColor="Black" />
-            </StackLayout>
-        </DataTemplate>
-    </Shell.FlyoutFooterTemplate>
+			</StackLayout>
+		</DataTemplate>
+	</Shell.FlyoutFooterTemplate>
 
 </Shell>
