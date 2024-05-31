@@ -29,7 +29,7 @@ namespace Hai.Views
 
 			// Initialize the HttpClient and set the API key
 			_httpClient = new HttpClient();
-			_apiKey = ""; // Replace with your actual API key
+			_apiKey = "AIzaSyALlRI9lfKHJHdtdAD3jxuZ2T-5-HFFsMQ"; // Replace with your actual API key
 
 			// Initialize the speech-to-text implementation
 			speechToText = new SpeechToTextImplementation();
@@ -37,19 +37,26 @@ namespace Hai.Views
 
 		private void OnTextInputChangedGemini(object sender, TextChangedEventArgs e)
 		{
-			// Handle text input change for Gemini
-			sendButtonGemini.IsVisible = !string.IsNullOrWhiteSpace(e.NewTextValue);
-
-			// Check if the text change is through the keyboard
-			if (e.NewTextValue.Length > 0 && e.OldTextValue.Length == 0)
+			// Ensure sendButtonGemini and micButtonGemini are not null
+			if (sendButtonGemini != null)
 			{
-				// Text added via keyboard, hide the mic button
-				micButtonGemini.IsVisible = false;
+				// Handle text input change for Gemini
+				sendButtonGemini.IsVisible = !string.IsNullOrWhiteSpace(e.NewTextValue);
 			}
-			else if (e.NewTextValue.Length == 0 && e.OldTextValue.Length > 0)
+
+			if (micButtonGemini != null)
 			{
-				// Text removed via keyboard, show the mic button
-				micButtonGemini.IsVisible = true;
+				// Check if the text change is through the keyboard
+				if (!string.IsNullOrEmpty(e.NewTextValue) && string.IsNullOrEmpty(e.OldTextValue))
+				{
+					// Text added via keyboard, hide the mic button
+					micButtonGemini.IsVisible = false;
+				}
+				else if (string.IsNullOrEmpty(e.NewTextValue) && !string.IsNullOrEmpty(e.OldTextValue))
+				{
+					// Text removed via keyboard, show the mic button
+					micButtonGemini.IsVisible = true;
+				}
 			}
 		}
 
