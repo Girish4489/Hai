@@ -29,7 +29,7 @@ public partial class MainPage : ContentPage
 
 		// Initialize the HttpClient and set the API key
 		_httpClient = new HttpClient();
-		_apiKey = "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";
+		//_apiKey = "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";
 
 		// Initialize the speech-to-text implementation
 		speechToText = new SpeechToTextImplementation();
