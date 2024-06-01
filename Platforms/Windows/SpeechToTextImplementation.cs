@@ -3,6 +3,7 @@ using System.Speech.Recognition;
 using Windows.Globalization;
 using Windows.Media.SpeechRecognition;
 using SpeechRecognizer = Windows.Media.SpeechRecognition.SpeechRecognizer;
+using Microsoft.Maui.Networking;
 
 namespace Hai.Platforms;
 

@@ -1,3 +1,5 @@
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.ApplicationModel;
 namespace Hai.Views
 {
 	using Hai.Platforms;
@@ -29,7 +31,7 @@ namespace Hai.Views
 
 			// Initialize the HttpClient and set the API key
 			_httpClient = new HttpClient();
-			_apiKey = "AIzaSyALlRI9lfKHJHdtdAD3jxuZ2T-5-HFFsMQ"; // Replace with your actual API key
+			_apiKey = ""; // Replace with your actual API key
 
 			// Initialize the speech-to-text implementation
 			speechToText = new SpeechToTextImplementation();
@@ -37,26 +39,20 @@ namespace Hai.Views
 
 		private void OnTextInputChangedGemini(object sender, TextChangedEventArgs e)
 		{
-			// Ensure sendButtonGemini and micButtonGemini are not null
-			if (sendButtonGemini != null)
-			{
-				// Handle text input change for Gemini
-				sendButtonGemini.IsVisible = !string.IsNullOrWhiteSpace(e.NewTextValue);
-			}
+			string text = e.NewTextValue;
 
-			if (micButtonGemini != null)
+			// Check if the text is not null or empty
+			if (!string.IsNullOrWhiteSpace(text))
 			{
-				// Check if the text change is through the keyboard
-				if (!string.IsNullOrEmpty(e.NewTextValue) && string.IsNullOrEmpty(e.OldTextValue))
-				{
-					// Text added via keyboard, hide the mic button
-					micButtonGemini.IsVisible = false;
-				}
-				else if (string.IsNullOrEmpty(e.NewTextValue) && !string.IsNullOrEmpty(e.OldTextValue))
-				{
-					// Text removed via keyboard, show the mic button
-					micButtonGemini.IsVisible = true;
-				}
+				// Hide the mic button and show the send button
+				micButtonGemini.IsVisible = false;
+				sendButtonGemini.IsVisible = true;
+			}
+			else
+			{
+				// Show the mic button and hide the send button
+				micButtonGemini.IsVisible = true;
+				sendButtonGemini.IsVisible = false;
 			}
 		}
 
@@ -83,7 +79,7 @@ namespace Hai.Views
 		public string RecognitionText { get; private set; }
 		private async Task StartListening()
 		{
-			micButtonGemini.IsEnabled = false;
+			micButtonGemini.IsVisible = false;
 			sendButtonGemini.IsVisible = false;
 			micStopButtonGemini.IsVisible = true;
 
@@ -164,6 +160,7 @@ namespace Hai.Views
 				if (response != null)
 				{
 					await AddMessageToChat(response, isUser: false);
+					chatScrollViewGemini.ScrollToAsync(0, chatScrollViewGemini.ContentSize.Height, true);
 				}
 			}
 			catch (Exception ex)

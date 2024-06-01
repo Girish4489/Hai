@@ -1,4 +1,5 @@
-﻿namespace Hai.Data
+﻿using Microsoft.Maui.Storage;
+namespace Hai.Data
 {
 	public static class Constants
 	{
